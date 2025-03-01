@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import css from "./App.module.css";
 import Feedback from "../Feedback/Feedback";
 import Options from "../Options/Options";
+import Description from "../Description/Description";
+import Notification from "../Notification/Notification";
 
 function App() {
   const [feedback, setFeedback] = useState(() => {
@@ -30,17 +32,12 @@ function App() {
 
   return (
     <div className={css.container}>
-      <h1 className={css.header}>Sip Happens Café</h1>
-      <p className={css.text}>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+      <Description />
       <Options
         onFeedback={updateFeedback}
         onReset={resetFeedback}
         hasFeedback={totalFeedback > 0}
       />
-
       {totalFeedback > 0 ? (
         <Feedback
           good={feedback.good}
@@ -50,7 +47,7 @@ function App() {
           positivePercentage={positiveFeedback}
         />
       ) : (
-        <p>No feedback yet</p>
+        <Notification message="No feedback yet" />
       )}
     </div>
   );
