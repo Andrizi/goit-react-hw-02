@@ -1,6 +1,6 @@
-import css from "./Feedbac.module.css";
+import css from "./Feedback.module.css";
 
-export default function Feedbac({
+export default function Feedback({
   good,
   neutral,
   bad,

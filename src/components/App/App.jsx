@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import css from "./App.module.css";
-import Feedbac from "../Feedbac/Feedbac";
+import Feedback from "../Feedback/Feedback";
 import Options from "../Options/Options";
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
       : { good: 0, neutral: 0, bad: 0 };
   });
 
-  // Зберігаємо статистику в локальне сховище
   useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(feedback));
   }, [feedback]);
@@ -28,6 +27,7 @@ function App() {
   const positiveFeedback = totalFeedback
     ? Math.round((feedback.good / totalFeedback) * 100)
     : 0;
+
   return (
     <div className={css.container}>
       <h1 className={css.header}>Sip Happens Café</h1>
@@ -42,7 +42,7 @@ function App() {
       />
 
       {totalFeedback > 0 ? (
-        <Feedbac
+        <Feedback
           good={feedback.good}
           neutral={feedback.neutral}
           bad={feedback.bad}

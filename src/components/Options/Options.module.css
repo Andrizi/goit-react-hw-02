@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.button {
+  padding: 12px;
+  color: blueviolet;
+  background-color: bisque;
+  border-radius: 12px;
+}
